@@ -8,12 +8,12 @@
 // 產出的字串直接複製貼上到 nightbot 的客製指令內即可
 
 const highlightPlaylists = {
-    dd: { 
-        name: { en: 'other streamer', tw: '主播臭DD'}, 
-        url: 'https://www.youtube.com/playlist?list=PLx2rcDoLcQEnvhBbWhl6tzjpQg9vdkuls' 
+    dd: {
+        name: { en: 'other streamer', tw: '主播臭DD'},
+        url: 'https://www.youtube.com/playlist?list=PLx2rcDoLcQEnvhBbWhl6tzjpQg9vdkuls'
     },
-    sarhighlight: { 
-        name: { en: 'SAR', tw: '小動物'}, 
+    sarhighlight: {
+        name: { en: 'SAR', tw: '小動物'},
         url: 'https://www.youtube.com/playlist?list=PLx2rcDoLcQEkWIo1_YkSDtzdh7-9V4Drd'
     }
 }
@@ -29,8 +29,8 @@ const getVideoUrls = (target = '', length = 0) => {
         return videos.map((v) => {
             search = v.search.substring(1);
             param = JSON.parse(
-                '{"' + search.replace(/&/g, '","').replace(/=/g,'":"') + '"}', 
-                (key, value) => { return key === '' ? value : decodeURIComponent(value) 
+                '{"' + search.replace(/&/g, '","').replace(/=/g,'":"') + '"}',
+                (key, value) => { return key === '' ? value : decodeURIComponent(value)
             });
             targetUrl = `https://youtu.be/${param.v}`
             return targetUrl;
@@ -53,8 +53,8 @@ const getMessage = (language = 'tw', videoCounts = 3) => {
         const randomMin = 0;
         const highlightUrlsText = `['${highlightUrls.join('\'\,\'')}']`;
         const pattern = {
-            en: `Come and see ${highlightPlaylists[playlistsTarget].name[language]}'s highlight: $(eval ${highlightUrlsText}[Math.floor(Math.random() * (${randomMax} - ${randomMin} + 1) + ${randomMin})])`,
-            tw: `快來看看${highlightPlaylists[playlistsTarget].name[language]}的精華影片:$(eval ${highlightUrlsText}[Math.floor(Math.random() * (${randomMax} - ${randomMin} + 1) + ${randomMin})])`
+            en: `Come and see ${highlightPlaylists[playlistsTarget].name[language]}'s highlight: $(eval ${highlightUrlsText}[Math.floor(Math.random()*${randomMax-randomMin+1}+${randomMin})])`,
+            tw: `快來看看${highlightPlaylists[playlistsTarget].name[language]}的精華影片:$(eval ${highlightUrlsText}[Math.floor(Math.random()*${randomMax-randomMin+1}+${randomMin})])`
         }
         return pattern[language];
     }
