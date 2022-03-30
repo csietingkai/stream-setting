@@ -8,7 +8,7 @@ const subsInfo = [{
 	subDate: new Date('2021-09-08').getTime()
 }, {
 	name: '蔡詠聿',
-	nick: '',
+	nick: '波波',
 	subDate: new Date('2021-10-03').getTime()
 }, {
 	name: '糕糕',
@@ -16,7 +16,7 @@ const subsInfo = [{
 	subDate: new Date('2021-10-04').getTime()
 }, {
 	name: '宜臻',
-	nick: '',
+	nick: '呱呱',
 	subDate: new Date('2021-10-05').getTime()
 }, {
 	name: 'malyu',
@@ -32,11 +32,11 @@ const subsInfo = [{
 	subDate: new Date('2021-12-21').getTime()
 }, {
 	name: 'Jack Yang',
-	nick: '',
+	nick: '點點用他老公的帳號',
 	subDate: new Date('2022-03-24').getTime()
 }, {
 	name: '糖心',
-	nick: '',
+	nick: '短腿',
 	subDate: new Date('2022-03-24').getTime()
 }, {
 	name: '季雲',
