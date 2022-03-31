@@ -65,3 +65,5 @@ const getMessage = (language = 'tw', videoCounts = 3) => {
     };
     return pattern[language];
 }
+
+console.log(getMessage('tw'));

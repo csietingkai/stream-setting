@@ -44,7 +44,10 @@ const subsInfo = [{
 	subDate: new Date('2022-03-26').getTime()
 }];
 
-const subJson = JSON.stringify(subsInfo);
+var fs = require('fs');
+fs.writeFile(`${__dirname}/subs.json`, JSON.stringify(subsInfo, null, 4), (err) => {
+	console.log(err);
+});
 
 const getMessage = (language = 'tw') => {
 	const pattern = {
@@ -54,4 +57,4 @@ const getMessage = (language = 'tw') => {
 	return pattern[language];
 }
 
-getMessage('tw');
+console.log(getMessage('tw'));
