@@ -29,7 +29,7 @@ const getVideos = () => {
         const videos = $$('a#video-title');
         return videos.map((v) => {
             const {innerText, data: { watchEndpoint: { videoId } } } = v;
-            return { title: innerText, url: `https://www.youtube.com/watch?v=${videoId}` };
+            return { title: innerText, url: `https://youtu.be/${videoId}` };
         });
     }
     console.error('[WARN] Current site is not valid playlist.');
