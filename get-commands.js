@@ -23,5 +23,5 @@ const subage = (language = 'tw') => {
 }
 
 console.log('sar-highlight', sarhighlight('tw'));
-console.log('dd-highlight', sarhighlight('tw'));
+console.log('dd-highlight', ddhighlight('tw'));
 console.log('subage', subage('tw'));
