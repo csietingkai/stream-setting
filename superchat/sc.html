@@ -1,23 +1,27 @@
 <html>
     <head>
+        <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
         <link rel=stylesheet type="text/css" href="sc.css">
         <script type="application/javascript" src="sc.js"></script>
+        <script type="application/javascript">
+            $(document).ready(init);
+        </script>
     </head>
     <body>
-        <div id="card" class="red">
+        <div id="card">
             <div id="header" class="flex">
                 <div id="author-photo" height="40" width="40">
                     <img id="img" draggable="false" alt="" height="40" width="40" src="https://yt4.ggpht.com/ytc/AOPolaTtIdAsngYxhd-kjTjSnctL6SeZ283mJLGvsZGyow=s32-c-k-c0x00ffffff-no-rj">
                 </div>
                 <div id="sc-info">
-                    <div id="author-name">亞洛帕卡AloPaca Ch.</div>
+                    <div id="author-name"></div>
                     <div id="purchase">NT$
-                        <span id="purchase-amount">7,000</span>
+                        <span id="purchase-amount"></span>
                     </div>
                 </div>
             </div>
             <div id="content">
-                <div id="message">奇怪的訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息</div>
+                <div id="message"></div>
             </div>
         </div>
     </body>
