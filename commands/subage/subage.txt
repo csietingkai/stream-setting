@@ -1,4 +1,1 @@
-is=$(urlfetch json https://stream-setting.pages.dev/commands/subage/subs.json);
-i=is.find(x=>x.id=='$(userid)');
-d=((Date.now()-i?.subDate)/(86400000));
-i?i.nick+"已訂閱"+d.toFixed(0)+"天！":"$(user)沒訂閱(☍﹏⁰)"
+is=$(urlfetch json https://stream-setting.pages.dev/commands/subage/subs.json);i=is.find(x=>x.id=='$(userid)');d=((Date.now()-i?.subDate)/(86400000));i?i.nick+"已訂閱"+d.toFixed(0)+"天！":"$(user)沒訂閱(☍﹏⁰)"
