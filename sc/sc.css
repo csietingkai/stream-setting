@@ -1,22 +1,25 @@
-/* --yt-live-chat-paid-message-secondary-color: rgba(0,184,212,1); --yt-live-chat-paid-message-header-color: rgba(0,0,0,1); --yt-live-chat-paid-message-timestamp-color: rgba(0,0,0,0.5019607843137255); --yt-live-chat-paid-message-color: rgba(0,0,0,1); --yt-live-chat-disable-highlight-message-author-name-color: rgba(0,0,0,0.7019607843137254); --yt-live-chat-text-input-background-color: rgba(255,255,255,0.18823529411764706);"><!--css-build:shady--><!--css-build:shady--> */
-
 .flex {
     display: flex;
 }
 
-div#card {
+.card {
     width: 350px;
+    margin-bottom: 15px;
 }
 
-div#header,
-div#content {
+.card.hide {
+    display: none;
+}
+
+div.header,
+div.content {
     padding-left: 15px;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-right: 15px;
 }
 
-#author-photo {
+.author-photo {
     background: transparent;
 }
 
@@ -24,62 +27,62 @@ img {
     border-radius: 50%;
 }
 
-#sc-info {
+.sc-info {
     margin-left: 10px;
 }
 
 /* blue superchat*/
-#card.blue #header {
+.card.blue .header {
     background-color: rgba(0,184,212,1);
     color: rgba(0,0,0,1);
 }
 
-#card.blue #content {
+.card.blue .content {
     background-color: rgba(0,229,255,1);
     color: rgba(0,0,0,1);
 }
 
 /* green superchat*/
-#card.green #header {
+.card.green .header {
     background-color: rgba(0,191,165,1);
     color: rgba(0,0,0,1);
 }
 
-#card.green #content {
+.card.green .content {
     background-color: rgba(29,233,182,1);
     color: rgba(0,0,0,1);
 }
 
 /* yellow superchat*/
-#card.yellow #header {
+.card.yellow .header {
     background-color: rgba(255,179,0,1);
     color: rgba(0,0,0,0.8745098039215686);
 }
 
-#card.yellow #content {
+.card.yellow .content {
     background-color: rgba(255,202,40,1);
     color: rgba(0,0,0,0.8745098039215686);
 }
 
 
 /* orange superchat*/
-#card.orange #header {
+.card.orange .header {
     background-color: rgba(230,81,0,1);
     color: rgba(255,255,255,0.8745098039215686);
 }
 
-#card.orange #content {
+.card.orange .content {
     background-color: rgba(245,124,0,1);
     color: rgba(255,255,255,0.8745098039215686);
 }
 
 /* red superchat*/
-#card.red #header {
+.card.red .header {
     background-color: rgba(208,0,0,1);
     color: rgba(255,255,255,1);
 }
 
-#card.red #content {
+.card.red .content {
     background-color: rgba(230,33,23,1);
     color: rgba(255,255,255,1);
 }

@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Language" content="zh-TW">
+    <title>實況主斂財 | 不是綠界科技</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+    <link href="./payed.css" rel="stylesheet" type="text/css">
+    <script type="application/javascript" src="util.js"></script>
+    <script type="application/javascript" src="payed.js"></script>
+    <script type="application/javascript">
+        $(document).ready(init);
+    </script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+            <img src="banner.png">
+        </div>
+    </div>
+    <div class="content">
+        <p class="provider">沒有金流服務 不用擔心錢錢不見</p>
+        <h3 class="content-title">付款成功 Payment successful</h3>
+        <div class="order-table o-info-1">
+            <dl>
+                <dt>訂單編號 Order number</dt>
+                <dd id="orderNum"></dd>
+            </dl>
+            <dl>
+                <dt>商店名稱 Merchant's name</dt>
+                <dd>羊羊牧場</dd>
+            </dl>
+            <dl>
+                <dt>付款方式 Payment method</dt>
+                <dd>蛤</dd>
+            </dl>
+        </div>
+        <div class="o-info-2">
+            <p class="currency-type">單位 Unit：新台幣 NTD</p>
+            <div class="order-table">
+                <dl class="ot-title">
+                    <dd class="o-pd-name">商品明細 Merchandise detail</dd>
+                    <dd class="o-pd-total">小計 Subtotal</dd>
+                </dl>
+                <dl>
+                    <dd class="o-pd-name">孜然羊肉串</dd>
+                    <dd id="price" class="o-pd-total"></dd>
+                </dl>
+            </div>
+            <div class="order-table ot-total">
+                <dl class="o-sum">
+                    <dd class="o-other-name">應付金額 Payable amount</dd>
+                    <dd class="o-other-total">NT$ <span id="total"></span></dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

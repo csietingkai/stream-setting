@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Language" content="zh-TW">
+    <title>實況主斂財 | 不是綠界科技</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+    <link href="./dn.css" rel="stylesheet" type="text/css">
+    <script type="application/javascript" src="util.js"></script>
+    <script type="application/javascript" src="dn.js"></script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+            <img src="banner.png">
+        </div>
+        <div class="content">
+            <div class="bg-gray">
+                <div class="title">
+                    <p>贊助給：<a href="https://www.youtube.com/@BB0822" style="color: #FFFFFF">羊肉爐</a></p>
+                </div>
+                <div class="form">
+                    <dl class="ptf-bs">
+                        <dt><span class="red">*</span> 贊助者名稱</dt>
+                        <dd>
+                            <input type="text" id="nick" name="nick" maxlength="20" autocomplete="off" placeholder="請輸入贊助者名稱" onkeyup="onFormChange(event)">
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt><span class="red">*</span> 贊助者金額 <span style="font-size: 13px;">(TWD)</span></dt>
+                        <dd>
+                            <input type="text" name="price" id="price" maxlength="6" autocomplete="off" placeholder="請輸入贊助金額" onkeyup="onFormChange(event)">
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt><span class="red">*</span> 留言</dt>
+                        <dd>
+                            <textarea name="message" cols="20" rows="6" id="message" placeholder="請輸入留言" autocomplete="off" maxlength="100" onkeyup="setCount(event)"></textarea>
+                            <p style="margin-top:0;" class="pay-tip-2">已輸入 <span id="char">0</span> / 100</p>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="btn-block">
+                    <a onclick="onPayClick()" class="btn">前往付款</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
