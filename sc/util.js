@@ -8,4 +8,4 @@ const numberComma = (num) => {
 
 const randomNumber = (min, max) => Math.floor(Math.random() * max) + min;
 
-const test = () => context.env.ecpay.get("test2");
+const test = () => context.env.expay.get("test2");
