@@ -1,9 +1,8 @@
 const init = () => {
-    const key = localStorage.getItem('key');
-    const scs = JSON.parse(localStorage.getItem('scs')) || [];
-    const sc = scs.find(x => x.time == key);
+    let sc = localStorage.getItem('sc');
     if (sc) {
-        $('#orderNum').text(key);
+        sc = JSON.parse(localStorage.getItem('sc'));
+        $('#orderNum').text(sc.time);
         $('#price').text(numberComma(sc.price));
         $('#total').text(numberComma(sc.price));
     }

@@ -32,11 +32,29 @@ const onPayClick = () => {
     const now = new Date().getTime();
     const item = { time: now, nick, price, message };
     if (!error) {
-        let scs = JSON.parse(localStorage.getItem('scs')) || [];
-        scs = scs.filter(sc => sc.time - now < 86400000);
-        scs.push(item);
-        localStorage.setItem('key', now);
-        localStorage.setItem('scs', JSON.stringify(scs));
+        postScs(item);
+        localStorage.setItem('sc', JSON.stringify(item));
         window.location.pathname = 'sc/payed.html';
     }
+}
+
+const postScs = async (item) => {
+    const url = `https://kv.tingkai.workers.dev?key=${env.BB_KEY}`
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            type: 'POST',
+            headers: {
+                'Authorization': `Bearer ${env.KV_WRITE}`
+            },
+            url,
+            dataType: 'json',
+            data: JSON.stringify(item),
+            success: (res) => {
+                resolve(res);
+            },
+            fail: (xhr, ajaxOptions, thrownError) => {
+                reject(false);
+            },
+        })
+    });
 }

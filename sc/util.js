@@ -14,4 +14,4 @@ const env = {
     BB_KEY: 'yBB0822',
     KV_WRITE: 'TpKZsijLCHtKQpjzoPnF-p6eHDZ5D6u302Ed7xYP',
     KV_READ: 'NSkuMHn0myQi0AvHIW6S1nUjq_avQtDiZGsIncYc'
-}
+};

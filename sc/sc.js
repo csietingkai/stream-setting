@@ -13,12 +13,13 @@ const scImgs = [
 
 const init = async () => {
     const scs = await fetchScs();
-    showCards(scs);
+    showCards(JSON.parse(scs));
 
-    setInterval(async () => {
-        const scs = await fetchScs();
-        showCards(scs);
-    }, 5000);
+    setInterval(() => {
+        fetchScs().then((scs) => {
+            showCards(JSON.parse(scs));
+        });
+    }, 10000);
 }
 
 const showCards = (scs) => {
@@ -45,15 +46,15 @@ const showCards = (scs) => {
 }
 
 const fetchScs = async () => {
-    const url = `https://api.cloudflare.com/client/v4/accounts/${env.ACCOUNT_ID}/storage/kv/namespaces/${env.NAMESPACE_ID}/values/${env.BB_KEY}`;
+    const url = `https://kv.tingkai.workers.dev?key=${env.BB_KEY}`
     return new Promise((resolve, reject) => {
         $.ajax({
             type: 'GET',
+            headers: {
+                'Authorization': `Bearer ${env.KV_READ}`
+            },
             url,
             dataType: 'json',
-            beforeSend: (xhr) => {
-                xhr.setRequestHeader('Authorization', `Bearer ${env.KV_READ}`);
-            },
             success: (res) => {
                 resolve(res);
             },
