@@ -13,11 +13,11 @@ const scImgs = [
 
 const init = async () => {
     const scs = await fetchScs();
-    showCards(JSON.parse(scs));
+    showCards(scs);
 
     setInterval(() => {
         fetchScs().then((scs) => {
-            showCards(JSON.parse(scs));
+            showCards(scs);
         });
     }, 10000);
 }
