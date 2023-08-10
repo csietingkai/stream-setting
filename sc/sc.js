@@ -11,16 +11,18 @@ const scImgs = [
     '1135957060249452564'
 ];
 
-const init = () => {
-    showCards();
+const init = async () => {
+    const scs = await fetchScs();
+    showCards(scs);
 
-    setInterval(showCards, 5000)
+    setInterval(async () => {
+        const scs = await fetchScs();
+        showCards(scs);
+    }, 5000);
 }
 
-const showCards = () => {
+const showCards = (scs) => {
     $('#cards').empty();
-
-    const scs = JSON.parse(localStorage.getItem('scs')) || [];
 
     for (const sc of scs) {
         const t = $('#template').clone();
@@ -40,6 +42,26 @@ const showCards = () => {
 
         $('#cards').append(t);
     }
+}
+
+const fetchScs = async () => {
+    const url = `https://api.cloudflare.com/client/v4/accounts/${env.ACCOUNT_ID}/storage/kv/namespaces/${env.NAMESPACE_ID}/values/${env.BB_KEY}`;
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            type: 'GET',
+            url,
+            dataType: 'json',
+            beforeSend: (xhr) => {
+                xhr.setRequestHeader('Authorization', `Bearer ${env.KV_READ}`);
+            },
+            success: (res) => {
+                resolve(res);
+            },
+            fail: (xhr, ajaxOptions, thrownError) => {
+                reject(false);
+            },
+        })
+    });
 }
 
 const color = (price) => {
