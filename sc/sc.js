@@ -25,6 +25,8 @@ const init = async () => {
 const showCards = (scs) => {
     $('#cards').empty();
 
+    const now = new Date().getTime();
+    scs = scs.filter(sc => now - sc.time < 864000);
     for (const sc of scs) {
         const t = $('#template').clone();
         t.attr('id', sc.time);
