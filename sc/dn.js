@@ -39,13 +39,10 @@ const onPayClick = () => {
 }
 
 const postScs = async (item) => {
-    const url = `https://kv.tingkai.workers.dev?key=${env.BB_KEY}`
+    const url = `${env.WORKER_URL}?key=${env.BB_KEY}`
     return new Promise((resolve, reject) => {
         $.ajax({
             type: 'POST',
-            headers: {
-                'Authorization': `Bearer ${env.KV_WRITE}`
-            },
             url,
             dataType: 'json',
             data: JSON.stringify(item),
