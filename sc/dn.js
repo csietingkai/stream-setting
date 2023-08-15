@@ -1,3 +1,30 @@
+let key = '';
+
+const init = async () => {
+    key = getUrlParams(window.location.search).key;
+    if (key) {
+        const channel = await fetchChannel(key);
+        $('#dnTarget').attr('href', channel);
+        $('#dnTarget').text(channel);
+    }
+}
+
+const fetchChannel = (key) => {
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            type: 'GET',
+            url: `${env.WORKER_URL}?key=${key}-channel`,
+            dataType: 'text',
+            success: (res) => {
+                resolve(res);
+            },
+            fail: (xhr, ajaxOptions, thrownError) => {
+                reject(false);
+            },
+        })
+    });
+}
+
 const onFormChange = (event) => {
     $(event.target).removeClass('red-border');
 }
@@ -39,11 +66,10 @@ const onPayClick = () => {
 }
 
 const postScs = async (item) => {
-    const url = `${env.WORKER_URL}?key=${env.BB_KEY}`
     return new Promise((resolve, reject) => {
         $.ajax({
             type: 'POST',
-            url,
+            url: `${env.WORKER_URL}?key=${env.BB_KEY}`,
             dataType: 'json',
             data: JSON.stringify(item),
             success: (res) => {

@@ -1,5 +1,8 @@
 <html>
     <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
         <link rel=stylesheet type="text/css" href="sc.css">
         <script type="application/javascript" src="util.js"></script>
@@ -12,7 +15,7 @@
         <div id="template" class="card hide">
             <div class="header flex">
                 <div class="author-photo" height="40" width="40">
-                    <img class="img" draggable="false" alt="" height="40" width="40" src="https://yt4.ggpht.com/ytc/AOPolaTtIdAsngYxhd-kjTjSnctL6SeZ283mJLGvsZGyow=s32-c-k-c0x00ffffff-no-rj">
+                    <img class="img" draggable="false" alt="" height="40" width="40" src="">
                 </div>
                 <div class="sc-info">
                     <div class="author-name"></div>
@@ -26,5 +29,10 @@
             </div>
         </div>
         <div id="cards"></div>
+        <div id="donate-alert" class="bg-green donation">
+            <img src="https://cdn.discordapp.com/emojis/1135957060249452564.webp?size=240&quality=lossless">
+		    <div class="fs-40">感謝<span id="dn-nick" class="bold">可愛羊駝</span>贊助的<span id="dn-price" class="bold">123</span>摳！</div>
+            <div id="dn-message" class="wrap p2 fs-40">RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRrrr</div>
+        </div>
     </body>
 </html>

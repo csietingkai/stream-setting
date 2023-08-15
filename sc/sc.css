@@ -1,14 +1,22 @@
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
 .flex {
     display: flex;
+}
+
+.hide {
+    display: none;
+}
+
+.p2 {
+    padding: 2px 2px 2px 2px;
 }
 
 .card {
     width: 350px;
     margin-bottom: 15px;
-}
-
-.card.hide {
-    display: none;
 }
 
 div.header,
@@ -85,4 +93,33 @@ img {
 .card.red .content {
     background-color: rgba(230,33,23,1);
     color: rgba(255,255,255,1);
+}
+
+.bg-green {
+    background: rgba(0,255,0,1);
+}
+
+.donation {
+    max-width: 450px;
+    min-width: 240px;
+    margin: auto;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+div.wrap {
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}
+
+.fs-40 {
+    font-size: 40px;
+}
+
+.bold {
+    font-weight: 600;
 }

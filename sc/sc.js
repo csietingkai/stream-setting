@@ -11,15 +11,27 @@ const scImgs = [
     '1135957060249452564'
 ];
 
-const init = async () => {
-    const scs = await fetchScs();
-    showCards(scs);
+let key = '';
 
-    setInterval(() => {
-        fetchScs().then((scs) => {
-            showCards(scs);
-        });
-    }, 10000);
+const init = async () => {
+    key = getUrlParams(window.location.search).key;
+    if (key) {
+        const scs = await fetchScs(key);
+        showCards(scs);
+
+        setInterval(() => {
+            fetchScs(key).then((scs) => {
+                if (scs.length > 0) {
+                    const time = localStorage.getItem('latest') || 0;
+                    if (scs[0].time > time) {
+                        localStorage.setItem('latest', scs[0].time)
+                        showdn(scs[0]);
+                    }
+                    showCards(scs);
+                }
+            });
+        }, env.FETCH_TIME);
+    }
 }
 
 const showCards = (scs) => {
@@ -47,12 +59,11 @@ const showCards = (scs) => {
     }
 }
 
-const fetchScs = async () => {
-    const url = `${env.WORKER_URL}?key=${env.BB_KEY}`
+const fetchScs = async (key) => {
     return new Promise((resolve, reject) => {
         $.ajax({
             type: 'GET',
-            url,
+            url: `${env.WORKER_URL}?key=${key}`,
             dataType: 'json',
             success: (res) => {
                 resolve(res);
@@ -79,4 +90,10 @@ const color = (price) => {
     } else if (price >= 1500) {
         return 'red';
     }
+}
+
+const showdn = (sc) => {
+    $('#dn-nick').text(sc.nick);
+    $('#dn-price').text(sc.price);
+    $('#dn-message').text(sc.message);
 }
