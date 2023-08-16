@@ -11,35 +11,14 @@ const scImgs = [
     '1135957060249452564'
 ];
 
-let key = '';
-
-const init = async () => {
-    key = getUrlParams(window.location.search).key;
-    if (key) {
-        const scs = await fetchScs(key);
-        showCards(scs);
-
-        setInterval(() => {
-            fetchScs(key).then((scs) => {
-                if (scs.length > 0) {
-                    const time = localStorage.getItem('latest') || 0;
-                    if (scs[0].time > time) {
-                        localStorage.setItem('latest', scs[0].time)
-                        showdn(scs[0]);
-                    }
-                }
-                showCards(scs);
-            });
-        }, env.FETCH_TIME);
-    }
-}
-
 const showCards = (scs) => {
     $('#cards').empty();
 
     const now = new Date().getTime();
     scs = scs.filter(sc => now - sc.time < 86400000);
-    for (const sc of scs) {
+    const length = scs.length <= env.MAX_SC_SIZE ? scs.length : env.MAX_SC_SIZE;
+    for (let idx = 0; idx < length; idx++) {
+        const sc = scs[idx];
         const t = $('#template').clone();
         t.attr('id', sc.time);
         t.removeClass('hide');
@@ -57,22 +36,6 @@ const showCards = (scs) => {
 
         $('#cards').append(t);
     }
-}
-
-const fetchScs = async (key) => {
-    return new Promise((resolve, reject) => {
-        $.ajax({
-            type: 'GET',
-            url: `${env.WORKER_URL}?key=${key}`,
-            dataType: 'json',
-            success: (res) => {
-                resolve(res);
-            },
-            fail: (xhr, ajaxOptions, thrownError) => {
-                reject(false);
-            },
-        })
-    });
 }
 
 const color = (price) => {
@@ -96,10 +59,10 @@ const showdn = (sc) => {
     wavyText('dn-nick', `${sc.nick}`);
     wavyText('dn-price', `${sc.price}`);
     $('#dn-message').text(sc.message);
-    $("#donate-alert").removeClass('hide');
-    const message = `${sc.nick}花了${sc.price}摳只為了說：${sc.message}`;
-    new Audio(`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=zh-TW&q=${message}`).play();
-    setTimeout(() => $("#donate-alert").addClass('hide'), 8640);
+    $('#donate-alert').removeClass('hide');
+    // const message = `${sc.nick}花了${sc.price}摳只為了說：${sc.message}`;
+    // new Audio(`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=zh-TW&q=${message}`).play();
+    setTimeout(() => $('#donate-alert').addClass('hide'), 8640);
 }
 
 const wavyText = (elementId, text) => {

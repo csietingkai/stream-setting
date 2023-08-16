@@ -7,15 +7,15 @@ textarea.red-border {
     border: 1px solid red;
 }
 
-.main {
+.dn-main {
     width: 100%;
 }
 
-.main .header {
+.dn-main .dn-header {
     text-align: center;
 }
 
-.main .header img {
+.dn-main .dn-header img {
     width: 100%;
     max-width: 900px;
 }
@@ -24,11 +24,11 @@ textarea.red-border {
     background: #f3f3f3;
 }
 
-.content {
+.dn-content {
     width: 100%;
 }
 
-.main .bg-gray {
+.dn-main .bg-gray {
     margin: auto;
     padding-top: 25px;
     padding-bottom: 25px
