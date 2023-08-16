@@ -34,7 +34,7 @@ const onPayClick = () => {
     if (!error) {
         websocket.send(JSON.stringify({ action: ACTION.DONATE, payload: { key, data: item } }));
         $('#orderNum').text(item.time);
-        $('#price').text(numberComma(item.price));
+        $('#payed-price').text(numberComma(item.price));
         $('#total').text(numberComma(item.price));
         $('#donate-page').addClass('hide')
         $('#payed-page').removeClass('hide')
