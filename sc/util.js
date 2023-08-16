@@ -17,8 +17,7 @@ const env = {
 const ACTION = {
     GET_CHANNEL: 'GET_CHANNEL',
     GET_SCS: 'GET_SCS',
-    DONATE: 'DONATE',
-    NEW_DONATION: 'NEW_DONATION'
+    DONATE: 'DONATE'
 }
 
 const getUrlParams = (queryString = window.location.search) => {
@@ -38,6 +37,10 @@ const init = () => {
     if (key) {
         websocket.send(JSON.stringify({ action: ACTION.GET_CHANNEL, payload: `${key}-channel` }));
         websocket.send(JSON.stringify({ action: ACTION.GET_SCS, payload: key }));
+
+        setInterval(() => {
+            websocket.send(JSON.stringify({ action: ACTION.GET_SCS, payload: key }));
+        }, env.FETCH_TIME);
     }
 }
 
@@ -50,10 +53,13 @@ const handleResp = (event) => {
         $('#dnTarget').attr('href', channel);
         $('#dnTarget').text(channel);
     } else if (response.action === ACTION.GET_SCS) {
-        showCards(response.data);
-    } else if (response.action === ACTION.NEW_DONATION) {
-        websocket.send(JSON.stringify({ action: ACTION.GET_SCS, payload: key }));
-        showdn(response.data);
+        const scs = response.data;
+        const latest = localStorage.getItem('latest');
+        if (scs.length > 0 && scs[0].time != latest) {
+            localStorage.setItem('latest', scs[0].time);
+            showdn(scs[0]);
+        }
+        showCards(scs);
     }
 }
 
