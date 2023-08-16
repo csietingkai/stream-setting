@@ -1,5 +1,6 @@
 body {
     font-family: 'Noto Sans TC', sans-serif;
+    background: rgba(0, 255, 0, 0.1);
 }
 
 .flex {
@@ -12,6 +13,10 @@ body {
 
 .dn-pd {
     padding: 3px 10px 3px 10px;
+}
+
+#cards {
+    padding-bottom: 200px;
 }
 
 .card {
@@ -93,10 +98,6 @@ div.content {
 .card.red .content {
     background-color: rgba(230, 33, 23, 1);
     color: rgba(255, 255, 255, 1);
-}
-
-.bg-green {
-    background: rgba(0, 255, 0, 1);
 }
 
 .donation {
