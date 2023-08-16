@@ -56,24 +56,11 @@ const color = (price) => {
 }
 
 const showdn = (sc) => {
-    wavyText('dn-nick', `${sc.nick}`);
-    wavyText('dn-price', `${sc.price}`);
+    $('#dn-nick').text(sc.nick);
+    $('#dn-price').text(sc.price);
     $('#dn-message').text(sc.message);
     $('#donate-alert').removeClass('hide');
     // const message = `${sc.nick}花了${sc.price}摳只為了說：${sc.message}`;
     // new Audio(`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=zh-TW&q=${message}`).play();
     setTimeout(() => $('#donate-alert').addClass('hide'), 8640);
-}
-
-const wavyText = (elementId, text) => {
-    const delay = 200;
-
-    const e = document.getElementById(elementId);
-    e.innerHTML = text.split('').map(letter => `<span>${letter}</span>`).join('');
-    Array.from(e.children).forEach((span, index) => {
-        setTimeout(() => {
-            span.classList.add('wavy');
-        }, index * 60 + delay);
-    });
-
 }
