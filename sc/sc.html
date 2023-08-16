@@ -1,5 +1,6 @@
 <html>
     <head>
+        <meta name="referrer" content="no-referrer">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
@@ -15,7 +16,7 @@
         <div id="template" class="card hide">
             <div class="header flex">
                 <div class="author-photo" height="40" width="40">
-                    <img class="img" draggable="false" alt="" height="40" width="40" src="">
+                    <img class="author-img" draggable="false" alt="" height="40" width="40" src="">
                 </div>
                 <div class="sc-info">
                     <div class="author-name"></div>
@@ -29,10 +30,16 @@
             </div>
         </div>
         <div id="cards"></div>
-        <div id="donate-alert" class="bg-green donation">
-            <img src="https://cdn.discordapp.com/emojis/1135957060249452564.webp?size=240&quality=lossless">
-		    <div class="fs-40">感謝<span id="dn-nick" class="bold">可愛羊駝</span>贊助的<span id="dn-price" class="bold">123</span>摳！</div>
-            <div id="dn-message" class="wrap p2 fs-40">RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRrrr</div>
+        <div id="donate-alert" class="bg-green donation hide">
+            <img src="./shut-up-and-take-my-money.gif">
+		    <div class="dn-title">
+                感謝
+                <span id="dn-nick" class="bold"></span>
+                贊助的
+                <span id="dn-price" class="bold"></span>
+                摳！
+            </div>
+            <div id="dn-message" class="wrap dn-pd dn-message"></div>
         </div>
     </body>
 </html>

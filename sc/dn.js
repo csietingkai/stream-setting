@@ -69,7 +69,7 @@ const postScs = async (item) => {
     return new Promise((resolve, reject) => {
         $.ajax({
             type: 'POST',
-            url: `${env.WORKER_URL}?key=${env.BB_KEY}`,
+            url: `${env.WORKER_URL}?key=${key}`,
             dataType: 'json',
             data: JSON.stringify(item),
             success: (res) => {

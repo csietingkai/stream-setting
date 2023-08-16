@@ -10,8 +10,8 @@ body {
     display: none;
 }
 
-.p2 {
-    padding: 2px 2px 2px 2px;
+.dn-pd {
+    padding: 3px 10px 3px 10px;
 }
 
 .card {
@@ -31,7 +31,7 @@ div.content {
     background: transparent;
 }
 
-img {
+.author-img {
     border-radius: 50%;
 }
 
@@ -41,71 +41,70 @@ img {
 
 /* blue superchat*/
 .card.blue .header {
-    background-color: rgba(0,184,212,1);
-    color: rgba(0,0,0,1);
+    background-color: rgba(0, 184, 212, 1);
+    color: rgba(0, 0, 0, 1);
 }
 
 .card.blue .content {
-    background-color: rgba(0,229,255,1);
-    color: rgba(0,0,0,1);
+    background-color: rgba(0, 229, 255, 1);
+    color: rgba(0, 0, 0, 1);
 }
 
 /* green superchat*/
 .card.green .header {
-    background-color: rgba(0,191,165,1);
-    color: rgba(0,0,0,1);
+    background-color: rgba(0, 191, 165, 1);
+    color: rgba(0, 0, 0, 1);
 }
 
 .card.green .content {
-    background-color: rgba(29,233,182,1);
-    color: rgba(0,0,0,1);
+    background-color: rgba(29, 233, 182, 1);
+    color: rgba(0, 0, 0, 1);
 }
 
 /* yellow superchat*/
 .card.yellow .header {
-    background-color: rgba(255,179,0,1);
-    color: rgba(0,0,0,0.8745098039215686);
+    background-color: rgba(255, 179, 0, 1);
+    color: rgba(0, 0, 0, 0.8745098039215686);
 }
 
 .card.yellow .content {
-    background-color: rgba(255,202,40,1);
-    color: rgba(0,0,0,0.8745098039215686);
+    background-color: rgba(255, 202, 40, 1);
+    color: rgba(0, 0, 0, 0.8745098039215686);
 }
 
 
 /* orange superchat*/
 .card.orange .header {
-    background-color: rgba(230,81,0,1);
-    color: rgba(255,255,255,0.8745098039215686);
+    background-color: rgba(230, 81, 0, 1);
+    color: rgba(255, 255, 255, 0.8745098039215686);
 }
 
 .card.orange .content {
-    background-color: rgba(245,124,0,1);
-    color: rgba(255,255,255,0.8745098039215686);
+    background-color: rgba(245, 124, 0, 1);
+    color: rgba(255, 255, 255, 0.8745098039215686);
 }
 
 /* red superchat*/
 .card.red .header {
-    background-color: rgba(208,0,0,1);
-    color: rgba(255,255,255,1);
+    background-color: rgba(208, 0, 0, 1);
+    color: rgba(255, 255, 255, 1);
 }
 
 .card.red .content {
-    background-color: rgba(230,33,23,1);
-    color: rgba(255,255,255,1);
+    background-color: rgba(230, 33, 23, 1);
+    color: rgba(255, 255, 255, 1);
 }
 
 .bg-green {
-    background: rgba(0,255,0,1);
+    background: rgba(0, 255, 0, 1);
 }
 
 .donation {
-    max-width: 450px;
+    max-width: 900px;
     min-width: 240px;
     margin: auto;
     text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px 10px 10px 10px;
 }
 
 div.wrap {
@@ -116,10 +115,44 @@ div.wrap {
     word-wrap: break-word;
 }
 
-.fs-40 {
-    font-size: 40px;
+.dn-title {
+    font-size: 55px;
+    -webkit-text-stroke: 1px black;
+    color: rgba(247, 205, 17, 0.9);
+    text-shadow: 3px 3px black;
+}
+
+.dn-message {
+    font-size: 35px;
+    -webkit-text-stroke: 1px black;
+    color: rgba(234, 245, 24, 0.9);
+    text-shadow: 0px 2px black;
 }
 
 .bold {
     font-weight: 600;
+}
+
+.wavy {
+    animation-name: wavy;
+    animation-duration: 1.3s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+@keyframes wavy {
+    0% {
+        top: 3px;
+    }
+
+    50% {
+        top: -3px;
+    }
+
+    100% {
+        top: 3px;
+    }
 }
