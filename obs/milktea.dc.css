@@ -1,0 +1,39 @@
+body { background-color: rgba(0, 0, 0, 0); margin: 0px auto; overflow: hidden; }
+
+/* 選択したユーザ以外の画像を非表示にする */
+img:not([src*="797462503357546518"]){ display:none; }
+img:not([src*="797462503357546518"])+div{ display:none; }
+li{ position:fixed;top:15px;left:0;right:0;width:100%; }
+
+/* アイコンを立ち絵画像に差し替える */
+img[class*="Voice_avatar_"]{
+  content:url("https://cdn.discordapp.com/attachments/1002447111670997014/1156202723830669373/fuA.png");
+  height:auto !important;
+  width:100% !important;
+  border-radius:0 !important;
+  position:absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  filter: brightness(50%);
+}
+
+/* 発話状態の設定 */
+img[class*="Voice_avatarSpeaking"]{
+  content:url("https://cdn.discordapp.com/attachments/1002447111670997014/1156202724057157723/fuB.png");
+  border-color:rgba(0,0,0,0) !important;
+  position:relative;
+  animation:speak-now 300ms ease-in-out forwards;
+  filter: brightness(100%) ;
+}
+
+@keyframes speak-now {
+  0% { bottom:0px; }
+  50% { bottom:10px; }
+  100% { bottom:0px; }
+}
+
+
+/* ネームタグ表示位置調整 */
+div[class*='Voice_user']{ display: none; }
